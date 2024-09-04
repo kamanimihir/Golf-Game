@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+
+        .walpaper {
+            width: 500px;
+            background: rgba(218, 220, 220, 0.614);
+            border: 2px solid rgba(3, 3, 3, 0.765);
+            border-radius: 10px;
+            color: rgba(14, 14, 14, 0.929);
+            height: auto;
+            padding: 40px 6px 50px;
+
+        }
+
+        .input-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-box .input-fild {
+            /* position: relative; */
+            width: 39%;
+            height: 50px;
+            margin: 13px 0;
+        }
+
+        .input-box .input-fild input {
+            width: 100%;
+            height: 30px;
+            padding-left: 9px;
+
+        }
+
+        .btn-main {
+            display: flex;
+            justify-content: center;
+
+
+        }
+
+        .btn {
+            width: 90px;
+            height: 30px;
+            border-radius: 12px;
+            background-color: rgba(55, 255, 0, 0.558);
+            border: 1px solid black;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="walpaper">
+            <form onsubmit="validateForm(event)">
+                <div class="input-box">
+
+                    <div class="input-fild">
+                        <input type="text" placeholder="Enter Youy Email id" id="email">
+                        <p id="emailError" class="error"></p>
+                    </div>
+                    <div class="input-fild">
+                        <input type="password" placeholder="Enter Your Password" id="password">
+                        <p id="passwordError" class="error"></p>
+                    </div>
+                    <div class="input-fild">
+                        <input type="tel" placeholder="123 4567 789" id="number">
+                        <p id="numberError" class="error"></p>
+
+                    </div>
+
+                </div><br>
+
+                <div class="btn-main">
+                    <input class="btn" type="submit" value="Login" ><br><br>
+                </div>
+            </form>
+            <div class="btn-main">
+                    <a class="btn" href="./rj_form.html">SING UP</a>  
+                </div>
+        </div>
+    </div>
+  
+</body>
+
+</html>
+<script>
+    function validateForm(event){
+        event.preventDefault();
+  
+    let email =document.getElementById("email").value
+    let password =document.getElementById("password").value
+    let number = document.getElementById("number").value
+
+    let emailError = document.getElementById("emailError")
+    let passwordError = document.getElementById("passwordError")
+    let numberError =document.getElementById("numberError")
+
+    let chackvalidasan=false
+
+    if(email ===""){
+        emailError.innerHTML="plase enter your email"
+        chackvalidasan=false
+    }else {
+        emailError.innerHTML=""
+        chackvalidasan=true
+    }
+
+    // password
+    if (password == "") {
+            passwordError.innerHTML = "plase enter password"
+            chackvalidasan=false
+
+        } else if (password.lenght < 8) {
+            passwordError.innerHTML = "plase morthen 8 chartc"
+            chackvalidasan=false
+        } else {
+            passwordError.innerHTML = ""
+            chackvalidasan=true
+        }
+
+        // number
+        if (number == "") {
+                numberError.innerHTML = "Please enter your number";
+                chackvalidasan=false
+            } else {
+                numberError.innerHTML = "";
+                chackvalidasan=true
+            }
+        if(chackvalidasan){
+            location.href='./index.html'
+        }
+}
+</script>
